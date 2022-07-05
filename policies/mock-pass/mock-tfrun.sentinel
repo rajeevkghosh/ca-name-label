@@ -1,0 +1,37 @@
+id = "run-egW2t2X5qNKxMd3g"
+created_at = "2022-07-05T11:47:13.303Z"
+message = "Triggered via UI"
+commit_sha = "795dae2e6f623ba68db24c18f5660547818cff60"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"GOOGLE_CREDENTIALS": {
+		"category":  "env",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "Wells-Phase3",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2022-07-05T11:46:15.459Z",
+	"description": "",
+	"id":          "ws-ap9fqnvjNN9M2L8u",
+	"name":        "ca-name-label",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "rajeevkghosh/ca-name-label",
+		"identifier":         "rajeevkghosh/ca-name-label",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}

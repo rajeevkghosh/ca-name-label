@@ -1,0 +1,10 @@
+{
+	"records": [
+		{
+			"key": "tfplan-functions",
+			"source": "./tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/home/rajeevghosh/WELLS-PHASE3/05july22/ca-name-label/policies/tfplan-functions.sentinel"
+		}
+	]
+}

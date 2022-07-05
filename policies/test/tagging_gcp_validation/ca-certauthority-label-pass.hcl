@@ -1,23 +1,21 @@
+module "tfplan-functions" {
+  source = "../../../common-functions/tfplan-functions/tfplan-functions.sentinel"
+}
+
 mock "tfplan/v2" {
   module {
-    source = "mock-pass/mock-tfplan-v2.sentinel"
+    source = "mock-tfplan-v2-ca-certauthority-label-pass.sentinel"
   }
 }
-module "tfplan-functions" {
-    source = "./tfplan-functions.sentinel"
-}
 
-
-param "org" {
-  value = [ "wf" ]
-}
-
-param "country" {
-  value = [ "us" ]
+test {
+  rules = {
+    main = true
+  }
 }
 
 param "gcp_region" {
-  value = [ "US" ]
+  value = [ "us" ]
 }
 
 param "owner" {
@@ -37,13 +35,9 @@ param "application_role" {
 }
 
 param "environment" {
-  value =   ["prod", "nonprod", "sandbox", "core"] 
+  value =   ["prod", "int", "uat", "stage", "dev", "test"] 
 }
 
 param "au" {
   value = [ "0223092" ]
-}
-
-param "prefix" {
-    value = "us-"
 }

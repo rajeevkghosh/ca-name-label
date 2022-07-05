@@ -1,12 +1,18 @@
-mock "tfplan/v2" {
-  module {
-    source = "mock-pass/mock-tfplan-v2.sentinel"
-  }
-}
 module "tfplan-functions" {
-    source = "./tfplan-functions.sentinel"
+    source = "../../../common-functions/tfplan-functions/tfplan-functions.sentinel"
 }
 
+mock "tfplan/v2" {
+  module {
+    source = "./mock-tfplan-v2-ca-capool-fail.sentinel"
+  }
+}
+
+test {
+  rules = {
+    main = false
+  }
+}
 
 param "org" {
   value = [ "wf" ]

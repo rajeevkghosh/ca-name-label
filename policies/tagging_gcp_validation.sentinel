@@ -40,6 +40,9 @@ resourceTypes = {
 	"google_sql_database_instance":   "settings.0.user_labels",
 	"google_container_cluster":       "node_config.0.labels",
     "google_dataflow_job":            "labels",
+	"google_privateca_ca_pool":       "labels",
+	"google_privateca_certificate":   "labels",
+	"google_privateca_certificate_authority": "labels",
 }
 
 # Function to Check if Labels Values are allowed
