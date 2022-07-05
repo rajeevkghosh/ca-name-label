@@ -24,6 +24,16 @@ resource "google_privateca_ca_pool" "default" {
     publish_ca_cert = true
     publish_crl = true
   }
+  labels = {
+      application_division = "pci",
+      application_name     = "demo",
+      application_role     = "app",
+      au                   = "0223092",
+      created              = "20211122",
+      environment          = "prod",
+      gcp_region           = "us",
+      owner                = "hybridenv",
+    }
   issuance_policy {
     baseline_values {
       ca_options {
@@ -48,6 +58,16 @@ resource "google_privateca_certificate_authority" "test-ca5" {
   project = "modular-scout-345114"
   pool = google_privateca_ca_pool.default.name
   deletion_protection = false
+  labels = {
+      application_division = "pci",
+      application_name     = "demo",
+      application_role     = "app",
+      au                   = "0223092",
+      created              = "20211122",
+      environment          = "prod",
+      gcp_region           = "us",
+      owner                = "hybridenv",
+    }
   //gcs_bucket = trimprefix(data.google_storage_bucket.default2.self_link,"https://www.googleapis.com/storage/v1/b/")
   //gcs_bucket = "abcd007"
   config {
@@ -93,6 +113,16 @@ resource "google_privateca_certificate" "default" {
   lifetime = "860s"
   name = "wf-us-prod-ca-app01-pcert1"
   pem_csr = tls_cert_request.example.cert_request_pem
+  labels = {
+      application_division = "paa",
+      application_name     = "demo",
+      application_role     = "app",
+      au                   = "0223092",
+      created              = "20211122",
+      environment          = "prod",
+      gcp_region           = "us",
+      owner                = "hybridenv",
+    }
 }
 
 

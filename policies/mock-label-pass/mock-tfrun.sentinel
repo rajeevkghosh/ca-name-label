@@ -1,0 +1,37 @@
+id = "run-6b3og9DLAw7BWzVW"
+created_at = "2022-07-05T13:07:32.007Z"
+message = "pushed updated code"
+commit_sha = "9ef65286704b6d38b5a7fef50ca81bd4e1debbc4"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"GOOGLE_CREDENTIALS": {
+		"category":  "env",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "Wells-Phase3",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2022-07-05T11:46:15.459Z",
+	"description": "",
+	"id":          "ws-ap9fqnvjNN9M2L8u",
+	"name":        "ca-name-label",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "rajeevkghosh/ca-name-label",
+		"identifier":         "rajeevkghosh/ca-name-label",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}
