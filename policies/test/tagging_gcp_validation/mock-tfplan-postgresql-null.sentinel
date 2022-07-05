@@ -1,0 +1,444 @@
+terraform_version = "1.0.11"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_sql_database_instance.master2": {
+			"address":        "google_sql_database_instance.master2",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "master2",
+			"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+			"tainted":        false,
+			"type":           "google_sql_database_instance",
+			"values": {
+				"clone":                  [],
+				"database_version":       "POSTGRES_11",
+				"deletion_protection":    false,
+				"encryption_key_name":    "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+				"name":                   "us-dev-abcd-fghi-postgres-master10",
+				"project":                "test-project",
+				"region":                 "us-central1",
+				"restore_backup_context": [],
+				"root_password":          "REDACTED_SENSITIVE",
+				"settings": [
+					{
+						"activation_policy":     "ALWAYS",
+						"availability_type":     "ZONAL",
+						"collation":             null,
+						"database_flags":        [],
+						"disk_autoresize":       true,
+						"disk_autoresize_limit": 0,
+						"disk_type":             "PD_SSD",
+						"insights_config":       [],
+						"maintenance_window":    [],
+						"pricing_plan":          "PER_USE",
+						"tier":                  "db-f1-micro",
+					},
+				],
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"google_sql_database_instance.master2": {
+		"address": "google_sql_database_instance.master2",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"clone":                  [],
+				"database_version":       "POSTGRES_11",
+				"deletion_protection":    false,
+				"encryption_key_name":    "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+				"name":                   "us-dev-abcd-fghi-postgres-master10",
+				"project":                "test-project",
+				"region":                 "us-central1",
+				"restore_backup_context": [],
+				"root_password":          "REDACTED_SENSITIVE",
+				"settings": [
+					{
+						"activation_policy":     "ALWAYS",
+						"availability_type":     "ZONAL",
+						"collation":             null,
+						"database_flags":        [],
+						"disk_autoresize":       true,
+						"disk_autoresize_limit": 0,
+						"disk_type":             "PD_SSD",
+						"insights_config":       [],
+						"maintenance_window":    [],
+						"pricing_plan":          "PER_USE",
+						"tier":                  "db-f1-micro",
+					},
+				],
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"clone":                         [],
+				"connection_name":               true,
+				"first_ip_address":              true,
+				"id":                            true,
+				"ip_address":                    true,
+				"master_instance_name":          true,
+				"private_ip_address":            true,
+				"public_ip_address":             true,
+				"replica_configuration":         true,
+				"restore_backup_context":        [],
+				"self_link":                     true,
+				"server_ca_cert":                true,
+				"service_account_email_address": true,
+				"settings": [
+					{
+						"backup_configuration": true,
+						"database_flags":       [],
+						"disk_size":            true,
+						"insights_config":      [],
+						"ip_configuration":     true,
+						"location_preference":  true,
+						"maintenance_window":   [],
+						"user_labels":          true,
+						"version":              true,
+					},
+				],
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "master2",
+		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+		"type":           "google_sql_database_instance",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"constant_value": "test-project",
+					},
+				},
+				"name": "google",
+			},
+			"google-beta": {
+				"expressions": {
+					"project": {
+						"constant_value": "test-project",
+					},
+				},
+				"name": "google-beta",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_sql_database_instance.master2",
+					"expressions": {
+						"database_version": {
+							"constant_value": "POSTGRES_11",
+						},
+						"deletion_protection": {
+							"constant_value": false,
+						},
+						"encryption_key_name": {
+							"references": [
+								"data.google_kms_crypto_key.crypto_key13.id",
+								"data.google_kms_crypto_key.crypto_key13",
+							],
+						},
+						"name": {
+							"constant_value": "us-dev-abcd-fghi-postgres-master10",
+						},
+						"project": {
+							"constant_value": "test-project",
+						},
+						"region": {
+							"constant_value": "us-central1",
+						},
+						"settings": [
+							{
+								"tier": {
+									"constant_value": "db-f1-micro",
+								},
+							},
+						],
+					},
+					"mode":                "managed",
+					"name":                "master2",
+					"provider_config_key": "google-beta",
+					"schema_version":      0,
+					"type":                "google_sql_database_instance",
+				},
+				{
+					"address": "data.google_kms_crypto_key.crypto_key13",
+					"expressions": {
+						"key_ring": {
+							"references": [
+								"data.google_kms_key_ring.key_ring.id",
+								"data.google_kms_key_ring.key_ring",
+							],
+						},
+						"name": {
+							"constant_value": "us-dev-abcd-fghi-cryptokey13",
+						},
+					},
+					"mode":                "data",
+					"name":                "crypto_key13",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_crypto_key",
+				},
+				{
+					"address": "data.google_kms_key_ring.key_ring",
+					"expressions": {
+						"location": {
+							"constant_value": "us-central1",
+						},
+						"name": {
+							"constant_value": "us-dev-abcd-fghi-keyring1",
+						},
+					},
+					"mode":                "data",
+					"name":                "key_ring",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_key_ring",
+				},
+			],
+		},
+	},
+	"format_version": "0.2",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_sql_database_instance.master2",
+					"mode":           "managed",
+					"name":           "master2",
+					"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+					"schema_version": 0,
+					"sensitive_values": {
+						"clone":                  [],
+						"ip_address":             [],
+						"replica_configuration":  [],
+						"restore_backup_context": [],
+						"server_ca_cert":         [],
+						"settings": [
+							{
+								"backup_configuration": [],
+								"database_flags":       [],
+								"insights_config":      [],
+								"ip_configuration":     [],
+								"location_preference":  [],
+								"maintenance_window":   [],
+								"user_labels":          {},
+							},
+						],
+					},
+					"type": "google_sql_database_instance",
+					"values": {
+						"clone":                  [],
+						"database_version":       "POSTGRES_11",
+						"deletion_protection":    false,
+						"encryption_key_name":    "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+						"name":                   "us-dev-abcd-fghi-postgres-master10",
+						"project":                "test-project",
+						"region":                 "us-central1",
+						"restore_backup_context": [],
+						"root_password":          "REDACTED_SENSITIVE",
+						"settings": [
+							{
+								"activation_policy":     "ALWAYS",
+								"availability_type":     "ZONAL",
+								"collation":             null,
+								"database_flags":        [],
+								"disk_autoresize":       true,
+								"disk_autoresize_limit": 0,
+								"disk_type":             "PD_SSD",
+								"insights_config":       [],
+								"maintenance_window":    [],
+								"pricing_plan":          "PER_USE",
+								"tier":                  "db-f1-micro",
+							},
+						],
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"prior_state": {
+		"format_version":    "0.2",
+		"terraform_version": "1.0.11",
+		"values": {
+			"root_module": {
+				"resources": [
+					{
+						"address":        "data.google_kms_crypto_key.crypto_key13",
+						"mode":           "data",
+						"name":           "crypto_key13",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"labels": {},
+							"version_template": [
+								{},
+							],
+						},
+						"type": "google_kms_crypto_key",
+						"values": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+							"import_only": false,
+							"key_ring":    "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"data_compliance":      "pci",
+								"data_confidentiality": "pub",
+								"data_type":            "test",
+								"env":                  "default",
+								"environment":          "dev",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "us-dev-abcd-fghi-cryptokey13",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "7776000s",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+					},
+					{
+						"address":          "data.google_kms_key_ring.key_ring",
+						"mode":             "data",
+						"name":             "key_ring",
+						"provider_name":    "registry.terraform.io/hashicorp/google",
+						"schema_version":   0,
+						"sensitive_values": {},
+						"type":             "google_kms_key_ring",
+						"values": {
+							"id":       "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+							"location": "us-central1",
+							"name":     "us-dev-abcd-fghi-keyring1",
+							"project":  "test-project",
+						},
+					},
+				],
+			},
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_sql_database_instance.master2",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"clone":                  [],
+					"database_version":       "POSTGRES_11",
+					"deletion_protection":    false,
+					"encryption_key_name":    "projects/test-project/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+					"name":                   "us-dev-abcd-fghi-postgres-master10",
+					"project":                "test-project",
+					"region":                 "us-central1",
+					"restore_backup_context": [],
+					"root_password":          "REDACTED_SENSITIVE",
+					"settings": [
+						{
+							"activation_policy":     "ALWAYS",
+							"availability_type":     "ZONAL",
+							"collation":             null,
+							"database_flags":        [],
+							"disk_autoresize":       true,
+							"disk_autoresize_limit": 0,
+							"disk_type":             "PD_SSD",
+							"insights_config":       [],
+							"maintenance_window":    [],
+							"pricing_plan":          "PER_USE",
+							"tier":                  "db-f1-micro",
+						},
+					],
+					"timeouts": null,
+				},
+				"after_sensitive": {
+					"clone":                  [],
+					"ip_address":             [],
+					"replica_configuration":  [],
+					"restore_backup_context": [],
+					"root_password":          true,
+					"server_ca_cert":         [],
+					"settings": [
+						{
+							"backup_configuration": [],
+							"database_flags":       [],
+							"insights_config":      [],
+							"ip_configuration":     [],
+							"location_preference":  [],
+							"maintenance_window":   [],
+							"user_labels":          {},
+						},
+					],
+				},
+				"after_unknown": {
+					"clone":                         [],
+					"connection_name":               true,
+					"first_ip_address":              true,
+					"id":                            true,
+					"ip_address":                    true,
+					"master_instance_name":          true,
+					"private_ip_address":            true,
+					"public_ip_address":             true,
+					"replica_configuration":         true,
+					"restore_backup_context":        [],
+					"self_link":                     true,
+					"server_ca_cert":                true,
+					"service_account_email_address": true,
+					"settings": [
+						{
+							"backup_configuration": true,
+							"database_flags":       [],
+							"disk_size":            true,
+							"insights_config":      [],
+							"ip_configuration":     true,
+							"location_preference":  true,
+							"maintenance_window":   [],
+							"user_labels":          true,
+							"version":              true,
+						},
+					],
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "master2",
+			"provider_name": "registry.terraform.io/hashicorp/google-beta",
+			"type":          "google_sql_database_instance",
+		},
+	],
+	"terraform_version": "1.0.11",
+}

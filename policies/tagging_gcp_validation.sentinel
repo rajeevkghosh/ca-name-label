@@ -1,0 +1,137 @@
+# This sentinel policies enforce Usage of specific lables on each resource
+# These sentinel policies enforce Wells Fargo security principles PR-172
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+import "types"
+
+# List of params
+param gcp_region
+param owner
+param application_division
+param application_name
+param application_role
+param environment
+param au
+
+# List of mandatory labels
+mandatory_labels = {
+	"gcp_region":           gcp_region,
+	"owner":                owner,
+	"application_division": application_division,
+	"application_name":     application_name,
+	"application_role":     application_role,
+	"environment":          environment,
+	"au":                   au,
+	"created":              null,
+}
+
+# Resource Types to check labels
+resourceTypes = {
+	"google_pubsub_topic":            "labels",
+	"google_secret_manager_secret":   "labels",
+	"google_dataproc_cluster":        "labels",
+	"google_kms_crypto_key":          "labels",
+	"google_bigquery_dataset":        "labels",
+	"google_compute_forwarding_rule": "labels",
+	"google_storage_bucket":          "labels",
+	"google_spanner_instance":        "labels",
+	"google_sql_database_instance":   "settings.0.user_labels",
+	"google_container_cluster":       "node_config.0.labels",
+    "google_dataflow_job":            "labels",
+}
+
+# Function to Check if Labels Values are allowed
+check_label_value = func(rc, label_key, label_value) {
+	label_key_prefix = resourceTypes[rc["type"]]
+	rc_label_value = plan.evaluate_attribute(rc, label_key_prefix + "." + label_key)
+	if label_value not contains rc_label_value {
+		return false
+	} else {
+		return true
+	}
+}
+
+# Fetch all resources based on resourceTypes
+allResources = {}
+for resourceTypes as rt, _ {
+	resources = plan.find_resources(rt)
+	for resources as address, rc {
+		allResources[address] = rc
+	}
+}
+
+allResourcesArray = {}
+for allResources as address, rc {
+	type = rc["type"]
+
+	lkey = resourceTypes[type]
+	if lkey in keys(allResourcesArray) {
+		allResourcesArray[lkey][address] = rc
+	} else {
+		allResourcesArray[lkey] = {}
+		allResourcesArray[lkey][address] = rc
+	}
+}
+
+# print(allResourcesArray)
+
+violatingResources = []
+
+# Fetch all resources which dont have mandatory_labels
+for allResourcesArray as lkey, resources {
+	rcs = plan.filter_attribute_not_contains_list(resources,
+		lkey, keys(mandatory_labels), true)
+	if length(rcs) > 0 {
+		append(violatingResources, rcs)
+	}
+}
+
+print(violatingResources)
+
+AllLabels = true
+
+for violatingResources as vr {
+	if length(vr["messages"]) > 0 {
+		AllLabels = false
+	}
+}
+
+# Rule to evaluate mandatory_labels
+AllLabelsExist = rule { AllLabels }
+
+# Declare  violators  & messages Map
+violators = {}
+messages = {}
+if AllLabelsExist {
+	for allResources as address, rc {
+		messages[address] = []
+		violation = false
+		for mandatory_labels as lk, lv {
+			if types.type_of(lv) is not "null" {
+				if not check_label_value(rc, lk, lv) {
+					violation = true
+					append(messages[address], plan.to_string(lk) + " Label with value " + plan.to_string(plan.evaluate_attribute(rc, "labels." + lk)) + " is not allowed")
+				}
+			}
+		}
+
+		if violation {
+			violators[address] = rc
+		}
+	}
+}
+
+# print messages on failure
+if length(violators) > 0 {
+	print(messages)
+}
+
+# Rule to evaluate mandatory_labels & label Values
+GCP_RES_LABELS = rule { length(violators) is 0 and AllLabelsExist }
+
+# Main rule
+main = rule {
+	GCP_RES_LABELS
+}

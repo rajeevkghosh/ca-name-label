@@ -1,0 +1,153 @@
+terraform_version = "1.2.1"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_composer_environment.test": {
+			"address":        "google_composer_environment.test",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "test",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_composer_environment",
+			"values": {
+				"labels":   null,
+				"name":     "wf-us-prod-cmp-fghi-cmp_app01",
+				"region":   "us-central1",
+				"timeouts": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"google_composer_environment.test": {
+		"address": "google_composer_environment.test",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"labels":   null,
+				"name":     "wf-us-prod-cmp-fghi-cmp_app01",
+				"region":   "us-central1",
+				"timeouts": null,
+			},
+			"after_unknown": {
+				"config":  true,
+				"id":      true,
+				"project": true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "test",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_composer_environment",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"project": {
+						"constant_value": "modular-scout-345114",
+					},
+					"region": {
+						"constant_value": "us-central1",
+					},
+				},
+				"name":               "google",
+				"version_constraint": "4.22.0",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_composer_environment.test",
+					"expressions": {
+						"name": {
+							"constant_value": "wf-us-prod-cmp-fghi-cmp_app01",
+						},
+						"region": {
+							"constant_value": "us-central1",
+						},
+					},
+					"mode":                "managed",
+					"name":                "test",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_composer_environment",
+				},
+			],
+		},
+	},
+	"format_version": "1.1",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_composer_environment.test",
+					"mode":           "managed",
+					"name":           "test",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"config": [],
+					},
+					"type": "google_composer_environment",
+					"values": {
+						"labels":   null,
+						"name":     "wf-us-prod-cmp-fghi-cmp_app01",
+						"region":   "us-central1",
+						"timeouts": null,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_composer_environment.test",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"labels":   null,
+					"name":     "wf-us-prod-cmp-fghi-cmp_app01",
+					"region":   "us-central1",
+					"timeouts": null,
+				},
+				"after_sensitive": {
+					"config": [],
+				},
+				"after_unknown": {
+					"config":  true,
+					"id":      true,
+					"project": true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "test",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_composer_environment",
+		},
+	],
+	"terraform_version": "1.2.1",
+}

@@ -1,0 +1,340 @@
+terraform_version = "1.2.3"
+
+planned_values = {
+	"outputs": {},
+	"resources": {
+		"google_dataflow_job.big_data_job": {
+			"address":        "google_dataflow_job.big_data_job",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "big_data_job",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
+			"tainted":        false,
+			"type":           "google_dataflow_job",
+			"values": {
+				"additional_experiments":  null,
+				"enable_streaming_engine": null,
+				"ip_configuration":        null,
+				"kms_key_name":            "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"machine_type":                 null,
+				"max_workers":                  null,
+				"name":                         "wf-us-prod-df-fghi-df_app01",
+				"network":                      null,
+				"on_delete":                    "drain",
+				"parameters":                   null,
+				"project":                      "modular-scout-345114",
+				"region":                       null,
+				"service_account_email":        null,
+				"skip_wait_on_job_termination": false,
+				"subnetwork":                   null,
+				"temp_gcs_location":            "gs://my-bucket-df/tmp_dir",
+				"template_gcs_path":            "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+				"timeouts":                     null,
+				"transform_name_mapping":       null,
+				"zone": null,
+			},
+		},
+	},
+}
+
+variables = {
+	"access_token": {
+		"name":  "access_token",
+		"value": "REDACTED_SENSITIVE",
+	},
+	"df-name": {
+		"name":  "df-name",
+		"value": "wf-us-prod-df-fghi-df_app01",
+	},
+	"project_id": {
+		"name":  "project_id",
+		"value": "modular-scout-345114",
+	},
+}
+
+resource_changes = {
+	"google_dataflow_job.big_data_job": {
+		"address": "google_dataflow_job.big_data_job",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"additional_experiments":  null,
+				"enable_streaming_engine": null,
+				"ip_configuration":        null,
+				"kms_key_name":            "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "",
+					"application_role":     "auth",
+					"au":                   "",
+					"created":              "20211001",
+					"environment":          "dev",
+					"gcp_region":           "us-central1",
+					"owner":                "wf",
+				},
+				"machine_type":                 null,
+				"max_workers":                  null,
+				"name":                         "wf-us-prod-df-fghi-df_app01",
+				"network":                      null,
+				"on_delete":                    "drain",
+				"parameters":                   null,
+				"project":                      "modular-scout-345114",
+				"region":                       null,
+				"service_account_email":        null,
+				"skip_wait_on_job_termination": false,
+				"subnetwork":                   null,
+				"temp_gcs_location":            "gs://my-bucket-df/tmp_dir",
+				"template_gcs_path":            "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+				"timeouts":                     null,
+				"transform_name_mapping":       null,
+				"zone": null,
+			},
+			"after_unknown": {
+				"id":     true,
+				"job_id": true,
+				"labels": {},
+				"state":  true,
+				"type":   true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "big_data_job",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_dataflow_job",
+	},
+}
+
+output_changes = {}
+
+raw = {
+	"configuration": {
+		"provider_config": {
+			"google": {
+				"expressions": {
+					"access_token": {
+						"references": [
+							"var.access_token",
+						],
+					},
+					"project": {
+						"references": [
+							"var.project_id",
+						],
+					},
+					"region": {
+						"constant_value": "us-central1",
+					},
+				},
+				"name": "google",
+			},
+			"google-beta": {
+				"expressions": {
+					"access_token": {
+						"references": [
+							"var.access_token",
+						],
+					},
+				},
+				"name": "google-beta",
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address": "google_dataflow_job.big_data_job",
+					"expressions": {
+						"ip_configuration": {},
+						"kms_key_name": {
+							"constant_value": "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						},
+						"labels": {
+							"constant_value": {
+								"application_division": "pci",
+								"application_name":     "",
+								"application_role":     "auth",
+								"au":                   "",
+								"created":              "20211001",
+								"environment":          "dev",
+								"gcp_region":           "us-central1",
+								"owner":                "wf",
+							},
+						},
+						"name": {
+							"references": [
+								"var.df-name",
+							],
+						},
+						"project": {
+							"references": [
+								"var.project_id",
+							],
+						},
+						"service_account_email": {},
+						"temp_gcs_location": {
+							"constant_value": "gs://my-bucket-df/tmp_dir",
+						},
+						"template_gcs_path": {
+							"constant_value": "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+						},
+					},
+					"mode":                "managed",
+					"name":                "big_data_job",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_dataflow_job",
+				},
+			],
+			"variables": {
+				"access_token": {
+					"description": "access_token",
+					"sensitive":   true,
+				},
+				"df-name": {
+					"description": "Name of Dataflow job",
+				},
+				"project_id": {
+					"description": "project_id",
+				},
+			},
+		},
+	},
+	"format_version": "1.1",
+	"planned_values": {
+		"root_module": {
+			"resources": [
+				{
+					"address":        "google_dataflow_job.big_data_job",
+					"mode":           "managed",
+					"name":           "big_data_job",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
+					"schema_version": 0,
+					"sensitive_values": {
+						"labels": {},
+					},
+					"type": "google_dataflow_job",
+					"values": {
+						"additional_experiments":  null,
+						"enable_streaming_engine": null,
+						"ip_configuration":        null,
+						"kms_key_name":            "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+						"labels": {
+							"application_division": "pci",
+							"application_name":     "",
+							"application_role":     "auth",
+							"au":                   "",
+							"created":              "20211001",
+							"environment":          "dev",
+							"gcp_region":           "us-central1",
+							"owner":                "wf",
+						},
+						"machine_type":                 null,
+						"max_workers":                  null,
+						"name":                         "wf-us-prod-df-fghi-df_app01",
+						"network":                      null,
+						"on_delete":                    "drain",
+						"parameters":                   null,
+						"project":                      "modular-scout-345114",
+						"region":                       null,
+						"service_account_email":        null,
+						"skip_wait_on_job_termination": false,
+						"subnetwork":                   null,
+						"temp_gcs_location":            "gs://my-bucket-df/tmp_dir",
+						"template_gcs_path":            "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+						"timeouts":                     null,
+						"transform_name_mapping":       null,
+						"zone": null,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "google_dataflow_job.big_data_job",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"additional_experiments":  null,
+					"enable_streaming_engine": null,
+					"ip_configuration":        null,
+					"kms_key_name":            "projects/modular-scout-345114/locations/global/keyRings/keyring-example/cryptoKeys/crypto-key-example",
+					"labels": {
+						"application_division": "pci",
+						"application_name":     "",
+						"application_role":     "auth",
+						"au":                   "",
+						"created":              "20211001",
+						"environment":          "dev",
+						"gcp_region":           "us-central1",
+						"owner":                "wf",
+					},
+					"machine_type":                 null,
+					"max_workers":                  null,
+					"name":                         "wf-us-prod-df-fghi-df_app01",
+					"network":                      null,
+					"on_delete":                    "drain",
+					"parameters":                   null,
+					"project":                      "modular-scout-345114",
+					"region":                       null,
+					"service_account_email":        null,
+					"skip_wait_on_job_termination": false,
+					"subnetwork":                   null,
+					"temp_gcs_location":            "gs://my-bucket-df/tmp_dir",
+					"template_gcs_path":            "gs://my-bucket-df/templates/template_file/latest_Word_Count",
+					"timeouts":                     null,
+					"transform_name_mapping":       null,
+					"zone": null,
+				},
+				"after_sensitive": {
+					"labels": {},
+				},
+				"after_unknown": {
+					"id":     true,
+					"job_id": true,
+					"labels": {},
+					"state":  true,
+					"type":   true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "big_data_job",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_dataflow_job",
+		},
+	],
+	"terraform_version": "1.2.3",
+	"variables": {
+		"access_token": {
+			"value": "REDACTED_SENSITIVE",
+		},
+		"df-name": {
+			"value": "wf-us-prod-df-fghi-df_app01",
+		},
+		"project_id": {
+			"value": "modular-scout-345114",
+		},
+	},
+}
